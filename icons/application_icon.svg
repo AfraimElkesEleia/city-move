@@ -1,0 +1,7 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Rounded Squircle Background -->
+  <rect x="32" y="32" width="448" height="448" rx="140" fill="#D2FC52" />
+  
+  <!-- Navigation Arrow Path -->
+  <path d="M 335.5 176.5 L 176.5 241.5 L 246.5 265.5 L 270.5 335.5 L 335.5 176.5 Z" stroke="#121212" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

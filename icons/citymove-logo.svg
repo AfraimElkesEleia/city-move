@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="85 10 300 95" width="100%" height="100%">
+  <defs>
+    <style>
+      .logo-text {
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-weight: 800;
+        font-size: 54px;
+        letter-spacing: -1.5px;
+      }
+      .city { fill: #FFFFFF; }
+      .move { fill: #C8FF00; }
+    </style>
+  </defs>
+
+  <!-- Integrated Arrow & CityMove Logo (transparent background) -->
+  <g transform="translate(35, 25)">
+
+    <!-- Wordmark -->
+    <text x="75" y="48" class="logo-text" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="54" letter-spacing="-1.5">
+      <tspan class="city" fill="#FFFFFF">City</tspan><tspan class="move" fill="#C8FF00">Move</tspan>
+    </text>
+  </g>
+</svg>
