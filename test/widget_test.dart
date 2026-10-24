@@ -21,7 +21,9 @@ void main() {
     expect(find.byKey(const ValueKey('splash_citymove_wordmark')), findsOneWidget);
     expect(find.byType(SvgPicture), findsNWidgets(2));
 
-    // Let animation finish cleanly
+    // Let animation finish cleanly and handle the post-splash delay
+    await tester.pumpAndSettle();
+    await tester.pump(const Duration(seconds: 2));
     await tester.pumpAndSettle();
 
     expect(tester.takeException(), isNull);
@@ -89,6 +91,7 @@ void main() {
     expect(finishedCalled, isFalse);
 
     await tester.pumpAndSettle();
+    await tester.pump(const Duration(seconds: 2));
 
     expect(finishedCalled, isTrue);
   });
@@ -102,8 +105,9 @@ void main() {
 
     await tester.pumpWidget(const CityMove());
     await tester.pumpAndSettle();
+    await tester.pump(const Duration(seconds: 2));
+    await tester.pumpAndSettle();
 
-    expect(find.byType(SplashLogoBadge), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 

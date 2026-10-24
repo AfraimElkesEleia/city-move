@@ -41,10 +41,7 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
 
-    _controller = AnimationController(
-      vsync: this,
-      duration: widget.duration,
-    );
+    _controller = AnimationController(vsync: this, duration: widget.duration);
 
     // 1. Entrance Fade-in (0.0 -> 0.38)
     _fadeAnimation = CurvedAnimation(
@@ -55,18 +52,24 @@ class _SplashScreenState extends State<SplashScreen>
     // 2. Entrance Scale (0.82 -> 1.0) followed by subtle smooth breath (1.0 -> 1.035 -> 1.0)
     _scaleAnimation = TweenSequence<double>([
       TweenSequenceItem(
-        tween: Tween<double>(begin: 0.82, end: 1.0)
-            .chain(CurveTween(curve: Curves.easeOutCubic)),
+        tween: Tween<double>(
+          begin: 0.82,
+          end: 1.0,
+        ).chain(CurveTween(curve: Curves.easeOutCubic)),
         weight: 45,
       ),
       TweenSequenceItem(
-        tween: Tween<double>(begin: 1.0, end: 1.035)
-            .chain(CurveTween(curve: Curves.easeInOutSine)),
+        tween: Tween<double>(
+          begin: 1.0,
+          end: 1.035,
+        ).chain(CurveTween(curve: Curves.easeInOutSine)),
         weight: 30,
       ),
       TweenSequenceItem(
-        tween: Tween<double>(begin: 1.035, end: 1.0)
-            .chain(CurveTween(curve: Curves.easeInOutSine)),
+        tween: Tween<double>(
+          begin: 1.035,
+          end: 1.0,
+        ).chain(CurveTween(curve: Curves.easeInOutSine)),
         weight: 25,
       ),
     ]).animate(_controller);
@@ -75,50 +78,61 @@ class _SplashScreenState extends State<SplashScreen>
     _rotationAnimation = TweenSequence<double>([
       // 1. Swing right (clockwise tilt ~ +11.5°)
       TweenSequenceItem(
-        tween: Tween<double>(begin: 0.0, end: 0.20)
-            .chain(CurveTween(curve: Curves.easeOutCubic)),
+        tween: Tween<double>(
+          begin: 0.0,
+          end: 0.20,
+        ).chain(CurveTween(curve: Curves.easeOutCubic)),
         weight: 18,
       ),
       // 2. Bounce left (counter-clockwise tilt ~ -7.5°)
       TweenSequenceItem(
-        tween: Tween<double>(begin: 0.20, end: -0.13)
-            .chain(CurveTween(curve: Curves.easeInOutCubic)),
+        tween: Tween<double>(
+          begin: 0.20,
+          end: -0.13,
+        ).chain(CurveTween(curve: Curves.easeInOutCubic)),
         weight: 18,
       ),
       // 3. Decaying bounce back to the right (~ +2.9°)
       TweenSequenceItem(
-        tween: Tween<double>(begin: -0.13, end: 0.05)
-            .chain(CurveTween(curve: Curves.easeInOutSine)),
+        tween: Tween<double>(
+          begin: -0.13,
+          end: 0.05,
+        ).chain(CurveTween(curve: Curves.easeInOutSine)),
         weight: 14,
       ),
       // 4. Settle cleanly back to upright (0.0)
       TweenSequenceItem(
-        tween: Tween<double>(begin: 0.05, end: 0.0)
-            .chain(CurveTween(curve: Curves.easeOutSine)),
+        tween: Tween<double>(
+          begin: 0.05,
+          end: 0.0,
+        ).chain(CurveTween(curve: Curves.easeOutSine)),
         weight: 10,
       ),
       // 5. Rest at 0.0 for the remaining sequence
-      TweenSequenceItem(
-        tween: ConstantTween<double>(0.0),
-        weight: 40,
-      ),
+      TweenSequenceItem(tween: ConstantTween<double>(0.0), weight: 40),
     ]).animate(_controller);
 
     // 4. Badge shadow glow intensity modulation
     _glowIntensityAnimation = TweenSequence<double>([
       TweenSequenceItem(
-        tween: Tween<double>(begin: 0.3, end: 1.0)
-            .chain(CurveTween(curve: Curves.easeOut)),
+        tween: Tween<double>(
+          begin: 0.3,
+          end: 1.0,
+        ).chain(CurveTween(curve: Curves.easeOut)),
         weight: 40,
       ),
       TweenSequenceItem(
-        tween: Tween<double>(begin: 1.0, end: 1.25)
-            .chain(CurveTween(curve: Curves.easeInOutSine)),
+        tween: Tween<double>(
+          begin: 1.0,
+          end: 1.25,
+        ).chain(CurveTween(curve: Curves.easeInOutSine)),
         weight: 35,
       ),
       TweenSequenceItem(
-        tween: Tween<double>(begin: 1.25, end: 1.0)
-            .chain(CurveTween(curve: Curves.easeInOutSine)),
+        tween: Tween<double>(
+          begin: 1.25,
+          end: 1.0,
+        ).chain(CurveTween(curve: Curves.easeInOutSine)),
         weight: 25,
       ),
     ]).animate(_controller);
@@ -126,18 +140,24 @@ class _SplashScreenState extends State<SplashScreen>
     // 5. Ambient background aura opacity
     _glowOpacityAnimation = TweenSequence<double>([
       TweenSequenceItem(
-        tween: Tween<double>(begin: 0.0, end: 0.85)
-            .chain(CurveTween(curve: Curves.easeOut)),
+        tween: Tween<double>(
+          begin: 0.0,
+          end: 0.85,
+        ).chain(CurveTween(curve: Curves.easeOut)),
         weight: 40,
       ),
       TweenSequenceItem(
-        tween: Tween<double>(begin: 0.85, end: 1.0)
-            .chain(CurveTween(curve: Curves.easeInOutSine)),
+        tween: Tween<double>(
+          begin: 0.85,
+          end: 1.0,
+        ).chain(CurveTween(curve: Curves.easeInOutSine)),
         weight: 35,
       ),
       TweenSequenceItem(
-        tween: Tween<double>(begin: 1.0, end: 0.85)
-            .chain(CurveTween(curve: Curves.easeInOutSine)),
+        tween: Tween<double>(
+          begin: 1.0,
+          end: 0.85,
+        ).chain(CurveTween(curve: Curves.easeInOutSine)),
         weight: 25,
       ),
     ]).animate(_controller);
@@ -145,18 +165,24 @@ class _SplashScreenState extends State<SplashScreen>
     // 6. Ambient background aura scale
     _glowScaleAnimation = TweenSequence<double>([
       TweenSequenceItem(
-        tween: Tween<double>(begin: 0.70, end: 1.0)
-            .chain(CurveTween(curve: Curves.easeOutCubic)),
+        tween: Tween<double>(
+          begin: 0.70,
+          end: 1.0,
+        ).chain(CurveTween(curve: Curves.easeOutCubic)),
         weight: 40,
       ),
       TweenSequenceItem(
-        tween: Tween<double>(begin: 1.0, end: 1.12)
-            .chain(CurveTween(curve: Curves.easeInOutSine)),
+        tween: Tween<double>(
+          begin: 1.0,
+          end: 1.12,
+        ).chain(CurveTween(curve: Curves.easeInOutSine)),
         weight: 35,
       ),
       TweenSequenceItem(
-        tween: Tween<double>(begin: 1.12, end: 1.0)
-            .chain(CurveTween(curve: Curves.easeInOutSine)),
+        tween: Tween<double>(
+          begin: 1.12,
+          end: 1.0,
+        ).chain(CurveTween(curve: Curves.easeInOutSine)),
         weight: 25,
       ),
     ]).animate(_controller);
@@ -175,9 +201,11 @@ class _SplashScreenState extends State<SplashScreen>
       ),
     );
 
-    _controller.forward().then((_) {
+    _controller.forward().then((_) async {
       if (mounted && widget.onFinished != null) {
-        widget.onFinished!();
+        await Future.delayed(const Duration(seconds: 2));
+        if (!mounted) return;
+        widget.onFinished?.call();
       }
     });
   }
@@ -190,13 +218,14 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   Widget build(BuildContext context) {
-    final badgeSize =
-        context.responsiveWidth(108.0, min: 88.0, max: 132.0);
-    final wordmarkWidth =
-        context.responsiveWidth(168.0, min: 136.0, max: 200.0);
+    final badgeSize = context.responsiveWidth(108.0, min: 88.0, max: 132.0);
+    final wordmarkWidth = context.responsiveWidth(
+      168.0,
+      min: 136.0,
+      max: 200.0,
+    );
     final wordmarkHeight = wordmarkWidth * (95.0 / 300.0);
-    final spacing =
-        context.responsiveHeight(20.0, min: 16.0, max: 26.0);
+    final spacing = context.responsiveHeight(20.0, min: 16.0, max: 26.0);
 
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -240,7 +269,8 @@ class _SplashScreenState extends State<SplashScreen>
                           opacity: _fadeAnimation.value,
                           child: SplashLogoBadge(
                             size: badgeSize,
-                            rotationAngle: 0.0, // Handled by outer Transform.rotate
+                            rotationAngle:
+                                0.0, // Handled by outer Transform.rotate
                             glowIntensity: _glowIntensityAnimation.value,
                           ),
                         ),

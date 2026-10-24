@@ -15,6 +15,9 @@ class CityMove extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter().onGenerate,
       initialRoute: Routes.splashScreen,
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.black
+      ),
     );
   }
 }
